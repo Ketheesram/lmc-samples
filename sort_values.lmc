@@ -1,0 +1,45 @@
+        INP 
+        STA A 
+        INP 
+        STA B 
+        INP 
+        STA C 
+        LDA A 
+        SUB B
+        BRP AB_ok
+        LDA B
+        SUB C
+        BRP BC_ok 
+        HLT
+AB_ok   LDA A
+        STA TEM
+        LDA B
+        STA A
+        LDA TEM
+        STA B
+        LDA B
+        SUB C 
+        BRP BC_ok
+        HLT
+BC_ok   LDA B
+        STA TEM
+        LDA C
+        STA B
+        LDA TEM 
+        STA C
+        LDA B 
+        SUB A
+        BRP all_ok
+        LDA B
+        STA TEM
+        LDA A
+        STA B
+        LDA TEM 
+        STA A
+        HLT
+all_ok  HLT
+A       DAT 
+B       DAT 
+C       DAT 
+TEM     DAT 
+
